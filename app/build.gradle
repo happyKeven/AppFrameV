@@ -1,0 +1,118 @@
+apply plugin: 'com.android.application'
+
+def getVersionNameFromManifest() {
+    def manifestParser = new com.android.builder.core.DefaultManifestParser()
+    return manifestParser.getVersionName(android.sourceSets.main.manifest.srcFile)
+}
+
+def getDate() {
+    def date = new Date()
+    //def formattedDate = date.format('yyyyMMddHHmm')
+    def formattedDate = date.format('yyyyMMdd')
+    return formattedDate
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.etisk.officalcar"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // 省略其他
+        // resConfig "en" , "fr"
+        // resConfigs "nodpi", "hdpi", "xhdpi", "xxhdpi", "xxxhdpi"
+
+        // 省略其他
+        ndk {
+            // abiFilters "armeabi-v7a", "x86"
+        }
+    }
+
+    signingConfigs {
+        myConfig {
+            /*
+            storeFile file("1.keystore")
+            storePassword "1"
+            keyAlias "1"
+            keyPassword "1"
+            */
+        }
+    }
+
+
+    buildTypes {
+        debug {
+            // signingConfig signingConfigs.myConfig
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            // 混淆代码
+            // [美团] http://tech.meituan.com/mt-android-resource-obfuscation.html
+            // [微信] http://mp.weixin.qq.com/s?_biz=MzAwNDY10DY20Q==&mid=208135658&idx=1&
+            // sn=ac9bd6b4927e9e82f9fa14e396183a8f#rd
+        }
+
+        release {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+
+            // 签名配置
+            // signingConfig signingConfigs.myConfig
+
+            // release版本一定要进行代码混淆
+            minifyEnabled true
+            // 去除无用的resource文件
+            shrinkResources true
+
+            zipAlignEnabled true
+
+            // signingConfig signingConfigs.myconfig
+
+            applicationVariants.all {
+                variant ->
+                    variant.outputs.each {
+                        output ->
+                            def outputFile = output.outputFile
+                            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                                // 输出apk名称为 MiBrowser_v2.0.8.5_Gplay0_20151118_Release.apk
+                                def fileName = 'MiniBrowser_' + 'v' + versionName + '_' + variant.productFlavors[0].name + '_' + getDate() + '_Release.apk'
+                                output.outputFile = new File(outputFile.parent, fileName)
+                            }
+                    }
+            }
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    productFlavors {
+        devtest {
+            manifestPlaceholders = [
+                    TD_APP_ID_VALUE                 : "C360DA39597C3467238DA639DB5174EB",
+                    TD_CHANNEL_ID_VALUE             : name,
+                    KOCHAVA_APP_ID_VALUE            : "",
+                    ACTIVE_TAG_VALUE                : "mini_browser_foreign_standard",
+                    CONTROL_GOOGLE_PAGE_SWITCH_VALUE: false]
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    compile "com.google.guava:guava:$rootProject.guavaVersion"
+    compile project(':library')
+}
+

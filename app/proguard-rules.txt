@@ -1,0 +1,60 @@
+# 指定代码的压缩级别
+-optimizationpasses 5
+ # 是否使用大小写混合
+-dontusemixedcaseclassnames
+# 混淆时是否做预校验
+-dontpreverify
+ # 混淆过程打印日志时的级别
+-verbose
+
+# 如果项目中使用到注解，需要保留注解属性
+-keepattributes *Annotation*
+
+-keep public class com.google.vending.licensing.ILicensingService
+-keep public class com.android.vending.licensing.ILicensingService
+
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+
+# 保持native 方法不做混淆
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+# 保持Views中的setter和getter方法不混淆，保证动画能够正常执行
+-keepclassmembers public class * extends android.view.View {
+    void set*(***);
+    *** get*();
+}
+
+#保持Activity中参数是View类型的函数，保证在XML文件中配置的onClick属性的值能够正常调用到
+-keepclassmembers class * extends android.app.Activity {
+    public void *(android.view.View);
+}
+
+#保持枚举类型中的函数
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+# 保持 Parcelable 类中的 CREATOR 不被混淆
+-keep class * implements android.os.Parcelable {
+    public static final android.os.Parcelable$Creator CREATOR;
+}
+
+
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
+
+# support library中包含对新的系统平台版本号的引用，如果是在旧的系统平台上链接 support library 的话，不要显示显示警告信息
+-dontwarn android.support.**
+
+# ormlite数据库
+-keepattributes Signature
+-keepattributes *Annotation*
+-keep class com.j256.ormlite.** { *; }
+
+
+# 引入picasso
+-dontwarn com.squareup.okhttp.**

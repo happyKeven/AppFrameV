@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+    <!-- CircleProgressBar -->
+    <declare-styleable name="CircleProgressBar">
+        <attr name="border_width" />
+        <attr name="border_color" />
+        <attr name="fill_color" format="color" />
+        <attr name="duration_second" format="integer" />
+    </declare-styleable>
+
+    <attr name="border_color" format="color" />
+    <attr name="border_width" format="dimension" />
+
+    <declare-styleable name="RoundButton">
+        <attr name="is_circle" format="boolean" />
+        <attr name="corner_radius" format="dimension" />
+        <attr name="stroke_color" format="color" />
+        <attr name="stroke_width" format="dimension" />
+        <attr name="solid_color" format="color" />
+
+        <attr name="pressed_stroke_color" format="color" />
+        <attr name="pressed_stroke_width" format="dimension" />
+        <attr name="pressed_solid_color" format="color" />
+
+        <attr name="selected_stroke_color" format="color" />
+        <attr name="selected_stroke_width" format="dimension" />
+        <attr name="selected_solid_color" format="color" />
+    </declare-styleable>
+
+</resources>

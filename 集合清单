@@ -1,0 +1,73 @@
+应用设计模式Mvp+Mvc
+架构思想 模块化
+代码规范 详见应用根目录下的编码规范
+
+
+数据库:
+ormlite  后期自己改造（apk瘦身）
+
+网络请求:
+okttp    后期自己改造(apk瘦身)
+
+图片加载:
+Picasso
+
+事件分发:
+EventBus
+
+数据解析：
+fastjson
+
+图表:
+hellocharts
+
+日记记录:
+logger
+
+崩溃捕获：
+CrashHandler + 友盟(未集成)
+
+anr问题监控:
+ if (BuildConfig.DEBUG) {
+    /**
+     * 解决这些检测到的问题能够减少应用发生ANR的概率
+     */
+    // 开启线程模式
+    StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().build());
+
+    // 开启虚拟机模式
+    StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().penaltyLog().build());
+}
+
+卡顿问题监控:
+BlockCanary
+
+数据统计和埋点
+友盟(未集成) + 后台(自己可考虑)
+
+apk加固
+360加固保(未集成)
+
+推送  第三方(集成方式：查看官方集成文档)
+友盟(未集成)
+
+地图 第三方(集成方式:查看官方集成文档)
+google、百度、高德
+
+组件
+详见com.keven.library.widgets目录
+bh
+高级UI
+Material Design
+
+
+框架实践之路
+Mvp+dragger+
+
+
+
+
+
+
+
+

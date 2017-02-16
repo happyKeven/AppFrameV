@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "G:\\kevenloverachel\\OfficalCarSystem\\ThirdPart\\SweetDialog\\build\\intermediates\\res\\merged\\release\\anim\\success_bow_roate.xml",
+        "source": "G:\\kevenloverachel\\OfficalCarSystem\\ThirdPart\\SweetDialog\\src\\main\\res\\anim\\success_bow_roate.xml"
+    },
+    {
+        "merged": "G:\\kevenloverachel\\OfficalCarSystem\\ThirdPart\\SweetDialog\\build\\intermediates\\res\\merged\\release\\anim\\success_mask_layout.xml",
+        "source": "G:\\kevenloverachel\\OfficalCarSystem\\ThirdPart\\SweetDialog\\src\\main\\res\\anim\\success_mask_layout.xml"
+    },
+    {
+        "merged": "G:\\kevenloverachel\\OfficalCarSystem\\ThirdPart\\SweetDialog\\build\\intermediates\\res\\merged\\release\\anim\\error_frame_in.xml",
+        "source": "G:\\kevenloverachel\\OfficalCarSystem\\ThirdPart\\SweetDialog\\src\\main\\res\\anim\\error_frame_in.xml"
+    },
+    {
+        "merged": "G:\\kevenloverachel\\OfficalCarSystem\\ThirdPart\\SweetDialog\\build\\intermediates\\res\\merged\\release\\anim\\modal_out.xml",
+        "source": "G:\\kevenloverachel\\OfficalCarSystem\\ThirdPart\\SweetDialog\\src\\main\\res\\anim\\modal_out.xml"
+    },
+    {
+        "merged": "G:\\kevenloverachel\\OfficalCarSystem\\ThirdPart\\SweetDialog\\build\\intermediates\\res\\merged\\release\\anim\\error_x_in.xml",
+        "source": "G:\\kevenloverachel\\OfficalCarSystem\\ThirdPart\\SweetDialog\\src\\main\\res\\anim\\error_x_in.xml"
+    },
+    {
+        "merged": "G:\\kevenloverachel\\OfficalCarSystem\\ThirdPart\\SweetDialog\\build\\intermediates\\res\\merged\\release\\anim\\modal_in.xml",
+        "source": "G:\\kevenloverachel\\OfficalCarSystem\\ThirdPart\\SweetDialog\\src\\main\\res\\anim\\modal_in.xml"
+    }
+]

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    >
+
+    <Button
+        android:id="@+id/btn_log_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LogRecordActivity"
+        android:onClick="logRecord"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/btn_hellocharts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="helloChartsActivity"
+        android:onClick="helloCharts"
+        android:textAllCaps="false"
+    />
+
+    <Button
+        android:id="@+id/btn_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MainActivity"
+        android:onClick="goToMain"
+        android:textAllCaps="false"
+    />
+
+</android.support.v7.widget.LinearLayoutCompat>

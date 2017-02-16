@@ -1,0 +1,8 @@
+include ':app', ':StatusLayout', ':ViewPagerIndicator', ':PullRefreshView', ':library', ':SweetDialog', ':libzxing'
+
+project(':PullRefreshView').projectDir = new File('ThirdPart/PullRefreshView')
+project(':StatusLayout').projectDir = new File('ThirdPart/StatusLayout')
+project(':ViewPagerIndicator').projectDir = new File('ThirdPart/ViewPagerIndicator')
+project(':SweetDialog').projectDir = new File('ThirdPart/SweetDialog')
+project(':libzxing').projectDir = new File('ThirdPart/libzxing')
+

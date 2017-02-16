@@ -1,0 +1,45 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <Button
+        android:id="@+id/loadingButton"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:text="Loading State"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp"
+        android:textColor="#FFFFFF"/>
+
+    <Button
+        android:id="@+id/emptyButton"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:layout_below="@+id/loadingButton"
+        android:text="Empty State"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:textColor="#FFFFFF"/>
+
+    <Button
+        android:id="@+id/errorButton"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:layout_below="@+id/emptyButton"
+        android:text="Error State"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:textColor="#FFFFFF"/>
+
+    <Button
+        android:id="@+id/contentButton"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:layout_below="@+id/errorButton"
+        android:text="Show Content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:textColor="#FFFFFF"/>
+</RelativeLayout>

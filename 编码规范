@@ -1,0 +1,93 @@
+1.1 Java编码规范
+1.1.1 源代码文件的定义
+源代码文件以文件内容中最顶层的Java类命名，而且大小写敏感，文件扩展名为.java,同时，文件的编码格式统一为UTF-8
+
+1.1.2 源代码文件的结构
+一个完整的源代码文件由四部分组成
+. 版权信息或者许可证
+. Java文件所在package的声明,例如package android.net
+. Java类需要使用到的依赖的引入import语句，一般不建议使用通配符
+. Java顶级类的定义，有且只有一个，但可以存在内部类定义
+
+1.1.3 遵循的格式
+. 多使用花括号 {}
+示例:
+if (isLogin) {
+    login();
+} else {
+    unlogin();
+}
+*********************************************************************
+. 列字符个数的限制：80-100（一般）
+. 空白的使用：
+（1）方法体内，语句的逻辑分组之间使用空行；
+（2）类里面连续的成员(字段、构造方法、普通方法、嵌套内部类、静态初始化代码块等)之间加上空行。当然，也没有必要加上多个空行，一个就够了
+（3）switch语句：switch语句除了要注意缩进，空白的使用外，如果连续两个case之间明确不需要加break语句时,建议加上// fall through注释，方便代码维护者的理解，
+同时一定要加上dsefault语句，一个符合规范的switch语句如下。
+switch (input) {
+    case 1:
+    xxxxxxxxxx
+
+    case 2:
+    xxxxxxxxxx
+    // fall througthrf
+
+    case 3:
+    xxxxxxxxxx
+    break;
+
+    default:
+    xxxxxxxxxx
+}
+
+.修饰符的顺序：类的成员的修饰符如果存在多个的话，需要按照Java语言规范中定义排序，语句如下。
+public protected private abstract static final transient volatile synchronized native strictfp
+
+1.1.4 命名约定
+类的命名遵循大驼峰命名法UpperCamelCase,而方法名和变量名的命名遵循小驼峰命名lowerCmelCase。常量名使用大写字母表示，单词之间以下划线分隔，例如
+static final int CONNECTION_TIMEOUT = 10000。
+
+1.1.5 Javadoc
+标准的Javadoc常见的标记和含义如下。
+/**
+* Javadoc常见的标记
+*
+* @param 方法参数的说明
+* @return 对方法返回值得说明
+* @throws 方法抛出异常的描述
+* @version 模块的版本号
+* @author 模块的作者
+* @see 参考转向
+* @deprecated 标记是否过时
+*/
+
+1.2 Andorid命名规范
+1.2.1 布局文件的命名
+布局文件的命名规范规则使用"前缀_逻辑名"的方式,单词全部小写,例如:
+.Activity的布局文件命名为activity_xxx。
+.Fragment的布局文件命名为fragment_xxx。
+.自定义控件的布局文件命名为view_xxx。
+.对话框的布局文件命名为dialog_xxx。
+.列表项的布局文件命名为item_xxx。
+
+1.2.2 资源文件的命名
+资源文件的命名规则使用 前缀_模块名_逻辑名称的方式，单词全部小写，例如:
+.按钮的命名以btn作为前缀，例如 btn_login.png,当按钮存在多种形态时，需要加上按钮的形态，例如btn_login_normal.png、btn_login_pressed.png等。
+.图标的命名以ic为前缀，例如ic_share.png
+背景图片的命名以divider作为前缀，例如divider_gray.png。
+
+1.2.3 类的命名
+类的命名遵循Java的类命名规范，也就是使用大驼峰命名法，同时需要根据类的具体用途引入Android相关的命名规则，例如:
+.Activity类需要以Activity作为后缀，例如MainActivity
+.Fragment类需要以Fragment作为后缀，例如HomeFragment.
+.Service类需要以Service作为后缀，例如DownloadService.
+.BroadcastReceiver类需要以Receiver作为后缀，例如PushReceiver.
+.ContentProvider类需要以Provider作为后缀，例如ContactProvider.
+.工具类需要以Util作为后缀，例如NetwrokUtil.
+自定义的公共基础类以Base开头，例如BaseActivity
+.单元测试的类以Test作为后缀，例如HashTest.
+
+1.3 CheckStyle的使用
+在Android Studio中，我们可以引入CheckStyle插件来进行编码规范的检查，每个团队根据自身的编码规范定制CheckStyle的规则，然后
+可以加入到持续构建平台中，定期扫描提交的代码是否符合规范，并给出报告，CheckStyle的配置可以参见本书第49章.
+
